@@ -5,6 +5,9 @@ import products from './menu.json';
 const productsMenu = document.querySelector('.menu');
 const themeSwitchToggle = document.querySelector('.theme-switch__toggle');
 const body= document.querySelector('body');
+
+
+
 productsMenu.insertAdjacentHTML('beforeend',productCardsTmp(products));
 
 themeSwitchToggle.addEventListener('change', toggleTheme);
@@ -16,6 +19,7 @@ function toggleTheme(evt)  {
         body.classList.add('dark-theme');
         body.classList.remove('light-theme');
         localStorage.setItem('theme', 'dark-theme');
+        
     } else {
         
         body.classList.add('light-theme');
@@ -24,13 +28,15 @@ function toggleTheme(evt)  {
     };   
 };
 
-if (localStorage.getItem('theme') === 'dark-theme'){
 
-   body.classList.add(localStorage.getItem('theme'));
+if (localStorage.getItem('theme') === 'dark-theme' ){
+
+   body.classList.add("dark-theme");
+   body.classList.remove('light-theme')
    themeSwitchToggle.setAttribute('checked', true);
 
 } else {
 
-    body.classList.add(localStorage.getItem('theme'));
+    body.classList.add('light-theme');
 
 };
